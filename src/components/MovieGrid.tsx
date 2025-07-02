@@ -28,9 +28,17 @@ export const MovieGrid: React.FC<MovieGridProps> = ({
   }
 
   return (
-    <div className="space-y-8 px-4 sm:px-6 lg:px-8">
+    <div className="space-y-8 px-3 sm:px-4 md:px-6 lg:px-8">
       {/* Responsive Movie Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+      <div className="
+        grid 
+        grid-cols-2 
+        sm:grid-cols-3 
+        md:grid-cols-4 
+        lg:grid-cols-5 
+        xl:grid-cols-6 
+        gap-3 sm:gap-4 md:gap-6
+      ">
         {movies.map((movie) => (
           <MovieCard
             key={`${movie.id}-${movie.media_type}`}
@@ -40,11 +48,10 @@ export const MovieGrid: React.FC<MovieGridProps> = ({
         ))}
 
         {/* Loading skeletons */}
-        {loading && (
+        {loading &&
           Array.from({ length: 20 }).map((_, index) => (
             <MovieCardSkeleton key={`skeleton-${index}`} />
-          ))
-        )}
+          ))}
       </div>
     </div>
   );

@@ -20,7 +20,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
 
   const handleImageLoad = () => setImageLoaded(true);
   const handleImageError = () => setImageError(true);
-
   const handleCardClick = () => {
     if (onClick) onClick(movie);
   };
@@ -29,14 +28,13 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
     <div
       className="
         group relative 
-        w-full max-w-full
+        w-full 
         bg-white/80 dark:bg-gray-900/40 
         backdrop-blur-sm rounded-xl overflow-hidden 
         border border-gray-300/30 dark:border-gray-700/30 
         hover:border-amber-500/50 transition-all duration-300 ease-out
-        hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2
-        cursor-pointer
-        flex flex-col
+        hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1
+        cursor-pointer flex flex-col
       "
       onClick={handleCardClick}
     >
@@ -48,7 +46,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
             alt={title}
             className={`
               w-full h-full object-cover transition-all duration-500
-              group-hover:scale-110 
+              group-hover:scale-105 
               ${imageLoaded ? 'opacity-100' : 'opacity-0'}
             `}
             onLoad={handleImageLoad}
@@ -64,12 +62,11 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
           </div>
         )}
 
-        {/* Loading skeleton */}
         {!imageLoaded && !imageError && (
           <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse" />
         )}
 
-        {/* Overlay with play button */}
+        {/* Overlay with Play Icon */}
         <div className="
           absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 
           transition-opacity duration-300 flex items-center justify-center
@@ -85,27 +82,27 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
         {/* Rating badge */}
         {movie.vote_average > 0 && (
           <div className="
-            absolute top-3 right-3 px-2 py-1 bg-black/70 backdrop-blur-sm 
-            rounded-lg flex items-center space-x-1
+            absolute top-2 right-2 px-2 py-0.5 bg-black/70 backdrop-blur-sm 
+            rounded-md flex items-center space-x-1
           ">
             <Star className="w-3 h-3 text-amber-400 fill-current" />
             <span className="text-xs text-white font-medium">{rating}</span>
           </div>
         )}
 
-        {/* Media type badge */}
+        {/* Media type */}
         <div className="
-          absolute top-3 left-3 px-2 py-1 bg-amber-500/20 backdrop-blur-sm 
-          rounded-lg border border-amber-500/30
+          absolute top-2 left-2 px-2 py-0.5 bg-amber-500/20 backdrop-blur-sm 
+          rounded-md border border-amber-500/30
         ">
           <span className="text-xs text-amber-600 dark:text-amber-400 font-medium">{mediaType}</span>
         </div>
       </div>
 
-      {/* Movie Info */}
-      <div className="p-4 space-y-2 flex flex-col min-h-0">
+      {/* Info */}
+      <div className="p-3 sm:p-4 space-y-2 flex flex-col">
         <h3 className="
-          text-gray-900 dark:text-white font-semibold text-sm leading-tight line-clamp-2
+          text-gray-900 dark:text-white font-semibold text-sm leading-snug line-clamp-2
           group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300
         ">
           {title}
@@ -124,7 +121,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
           </p>
         )}
 
-        {/* Hover Details */}
         <div className="
           opacity-0 group-hover:opacity-100 transition-opacity duration-300
           pt-2 border-t border-gray-300/50 dark:border-gray-700/50
