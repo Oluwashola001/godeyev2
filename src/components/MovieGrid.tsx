@@ -1,4 +1,3 @@
-// Updated movie grid component with improved responsive layout
 import React from 'react';
 import { Film } from 'lucide-react';
 import { Movie } from '../types/movie';
@@ -29,16 +28,9 @@ export const MovieGrid: React.FC<MovieGridProps> = ({
   }
 
   return (
-    <div className="space-y-8">
-      {/* Movie Grid - Improved responsive layout */}
-      <div className="
-        grid gap-4 md:gap-6
-        grid-cols-[repeat(auto-fit,minmax(160px,1fr))]
-        sm:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]
-        md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]
-        lg:grid-cols-[repeat(auto-fit,minmax(220px,1fr))]
-        xl:grid-cols-[repeat(auto-fit,minmax(240px,1fr))]
-      ">
+    <div className="space-y-8 px-4 sm:px-6 lg:px-8">
+      {/* Responsive Movie Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
         {movies.map((movie) => (
           <MovieCard
             key={`${movie.id}-${movie.media_type}`}
