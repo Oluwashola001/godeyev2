@@ -1,4 +1,3 @@
-// Movie card with consistent height and improved responsive design
 import React, { useState } from 'react';
 import { Star, Calendar, Play, Info } from 'lucide-react';
 import { Movie } from '../types/movie';
@@ -23,27 +22,26 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
   const handleImageError = () => setImageError(true);
 
   const handleCardClick = () => {
-    if (onClick) {
-      onClick(movie);
-    }
+    if (onClick) onClick(movie);
   };
 
   return (
-    <div 
+    <div
       className="
         group relative 
+        w-full max-w-full
         bg-white/80 dark:bg-gray-900/40 
         backdrop-blur-sm rounded-xl overflow-hidden 
         border border-gray-300/30 dark:border-gray-700/30 
         hover:border-amber-500/50 transition-all duration-300 ease-out
         hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2
         cursor-pointer
-        h-full flex flex-col
+        flex flex-col
       "
       onClick={handleCardClick}
     >
       {/* Poster Image */}
-      <div className="relative aspect-[2/3] overflow-hidden bg-gray-200 dark:bg-gray-800 flex-shrink-0">
+      <div className="relative aspect-[2/3] overflow-hidden bg-gray-200 dark:bg-gray-800">
         {!imageError ? (
           <img
             src={tmdbApi.getImageUrl(movie.poster_path, 'w500')}
@@ -104,34 +102,32 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, onClick }) => {
         </div>
       </div>
 
-      {/* Movie Info - Flexible height */}
-      <div className="p-4 space-y-2 flex-grow flex flex-col">
+      {/* Movie Info */}
+      <div className="p-4 space-y-2 flex flex-col min-h-0">
         <h3 className="
           text-gray-900 dark:text-white font-semibold text-sm leading-tight line-clamp-2
           group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300
-          flex-shrink-0
         ">
           {title}
         </h3>
 
         {year && (
-          <div className="flex items-center text-gray-600 dark:text-gray-400 text-xs flex-shrink-0">
+          <div className="flex items-center text-gray-600 dark:text-gray-400 text-xs">
             <Calendar className="w-3 h-3 mr-1" />
             <span>{year}</span>
           </div>
         )}
 
         {movie.overview && (
-          <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed line-clamp-3 flex-grow">
+          <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed line-clamp-3">
             {movie.overview}
           </p>
         )}
 
-        {/* Additional info on hover */}
+        {/* Hover Details */}
         <div className="
           opacity-0 group-hover:opacity-100 transition-opacity duration-300
           pt-2 border-t border-gray-300/50 dark:border-gray-700/50
-          flex-shrink-0
         ">
           <div className="flex items-center justify-between text-xs">
             <span className="text-gray-500 dark:text-gray-400">
