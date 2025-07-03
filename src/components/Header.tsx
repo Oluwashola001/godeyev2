@@ -1,4 +1,3 @@
-// Header with sticky positioning and proper light/dark theme support
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Eye } from 'lucide-react';
@@ -31,9 +30,9 @@ export const Header: React.FC = () => {
       transition-all duration-300
     ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo - Clickable */}
-          <Link to="/" className="flex items-center space-x-3 group">
+        <div className="flex flex-wrap items-center justify-between gap-2 py-3">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-3 group flex-shrink-0">
             <div className="relative">
               <Eye className="w-8 h-8 text-amber-600 dark:text-amber-500 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors duration-200" />
               <div className="absolute inset-0 w-8 h-8 text-amber-600 dark:text-amber-500 animate-pulse opacity-50">
@@ -48,40 +47,28 @@ export const Header: React.FC = () => {
             </div>
           </Link>
 
-          {/* Navigation - Desktop */}
-          <nav className="hidden md:flex items-center space-x-2">
-            <Link to="/" className={navLinkClass('/')}>
-              Home
-            </Link>
-            <Link to="/trending" className={navLinkClass('/trending')}>
-              Trending
-            </Link>
-            <Link to="/movies" className={navLinkClass('/movies')}>
-              Movies
-            </Link>
-            <Link to="/tvshows" className={navLinkClass('/tvshows')}>
-              TV Shows
-            </Link>
-          </nav>
+          {/* Navigation */}
+          <div className="flex flex-wrap items-center justify-center gap-2 flex-1 md:justify-end">
+            <nav className="flex flex-wrap gap-2 justify-center">
+              <Link to="/" className={navLinkClass('/')}>
+                Home
+              </Link>
+              <Link to="/trending" className={navLinkClass('/trending')}>
+                Trending
+              </Link>
+              <Link to="/movies" className={navLinkClass('/movies')}>
+                Movies
+              </Link>
+              <Link to="/tvshows" className={navLinkClass('/tvshows')}>
+                TV Shows
+              </Link>
+            </nav>
 
-          {/* Navigation - Mobile */}
-          <nav className="md:hidden flex items-center space-x-1">
-            <Link to="/" className={navLinkClass('/')}>
-              Home
-            </Link>
-            <Link to="/trending" className={navLinkClass('/trending')}>
-              Trending
-            </Link>
-            <Link to="/movies" className={navLinkClass('/movies')}>
-              Movies
-            </Link>
-            <Link to="/tvshows" className={navLinkClass('/tvshows')}>
-              TV
-            </Link>
-          </nav>
-
-          {/* Theme Toggle */}
-          <ThemeToggle />
+            {/* Theme Toggle */}
+            <div className="flex-shrink-0">
+              <ThemeToggle />
+            </div>
+          </div>
         </div>
       </div>
     </header>
