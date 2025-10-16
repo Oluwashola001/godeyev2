@@ -15,7 +15,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   onSearch,
   onClear,
   loading = false,
-  placeholder = "Search for movies, TV shows, or keywords..."
+  placeholder = "Search keywords..."
 }) => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<Movie[]>([]);
@@ -262,12 +262,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         </div>
       </form>
 
-      {/* Search hint */}
-      {!isFocused && !query && (
-        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-sm text-gray-500 dark:text-gray-400 pointer-events-none">
-          Press <kbd className="px-2 py-1 bg-gray-200/50 dark:bg-gray-200/20 rounded text-xs">/</kbd> to search
-        </div>
-      )}
+      
 
       {/* Suggestions Dropdown */}
       {showSuggestions && (suggestions.length > 0 || loadingSuggestions) && (

@@ -120,24 +120,35 @@ export const HomePage: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 bg-white/40 dark:bg-black/40 backdrop-blur-md border-t border-gray-300/30 dark:border-gray-700/30 py-8 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
-            Powered by{' '}
-            <a 
-              href="https://www.themoviedb.org/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors duration-200"
-            >
-              The Movie Database (TMDB)
-            </a>
-          </p>
-          <p className="text-gray-500 dark:text-gray-500 text-xs mt-2 transition-colors duration-300">
-            God'seye - Bridging the gap between humans and their favorite entertainment
-          </p>
-        </div>
-      </footer>
+<footer className="relative z-10 bg-gray-900 dark:bg-gray-950 py-4 transition-colors duration-300">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Brand Section */}
+    <div className="flex flex-col items-center justify-center mb-4">
+      <div className="flex items-center -mt-4 ">
+        <span className="text-4xl md:text-5xl font-bold text-gray-400">God'sEyeM</span>
+        <img 
+          src="/logo.png" 
+          alt="God'sEye Logo" 
+          className="w-32 h-32 md:w-32 md:h-32 object-contain -mx-4"
+        />
+        <span className="text-4xl md:text-5xl font-bold text-gray-400">vies</span>
+      </div>
+      <p className="text-gray-500 text-sm md:text-base -mt-8">
+        Bringing your favorite movies closer. Free forever. Zero ads.
+      </p>
+    </div>
+
+    {/* Copyright Section */}
+    <div className="text-center">
+      <p className="text-white text-base md:text-lg mb-4 py-4">
+        Copyright © 2025 God'sEye - All Rights Reserved.
+      </p>
+      <p className="text-gray-500 text-sm md:text-base max-w-3xl mx-auto mb-4">
+        Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.
+      </p>
+    </div>
+  </div>
+</footer>
     </div>
   );
 };
