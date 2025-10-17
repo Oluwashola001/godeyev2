@@ -124,16 +124,16 @@ export const HomePage: React.FC = () => {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Brand Section */}
     <div className="flex flex-col items-center justify-center mb-4">
-      <div className="flex items-center -mt-4 ">
-        <span className="text-4xl md:text-5xl font-bold text-gray-400">God'sEyeM</span>
+      <div className="flex items-center -mt-3.5 ">
+        <span className="text-3xl md:text-4xl font-bold text-gray-400">God'sEyeM</span>
         <img 
           src="/logo.png" 
           alt="God'sEye Logo" 
-          className="w-32 h-32 md:w-32 md:h-32 object-contain -mx-4"
+          className="w-20 h-20 md:w-20 md:h-20 object-contain -mx-2.5"
         />
         <span className="text-4xl md:text-5xl font-bold text-gray-400">vies</span>
       </div>
-      <p className="text-gray-500 text-sm md:text-base -mt-8">
+      <p className="text-gray-500 text-sm md:text-base -mt-5">
         Bringing your favorite movies closer. Free forever. Zero ads.
       </p>
     </div>
